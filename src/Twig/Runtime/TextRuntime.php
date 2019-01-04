@@ -60,6 +60,10 @@ class TextRuntime
      */
     public function localeDateTime($dateTime, $format = '%B %e, %Y %H:%M', $locale = 0)
     {
+        if ($dateTime == null) {
+            return "";
+        }
+        
         if (!$dateTime instanceof \DateTime) {
             $dateTime = new \DateTime($dateTime);
         }

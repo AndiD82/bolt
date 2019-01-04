@@ -276,6 +276,51 @@ blocks:
     icon_many: "fa:cubes"
     icon_one: "fa:cube"
 
+
+# The "events" content type can be used to build a event calendar. There's also a custom
+# template available for the backend to display the events with start date and end date.
+
+events:
+    name: Events
+    singular_name: Event
+    singular_slug: event
+    fields:
+        title:
+            type: text
+            class: large
+            required: true
+            group: content
+        slug:
+            type: slug
+            uses: title
+            group: content
+        startdate: 
+            type: datetime
+            required: true
+            group: content
+        enddate:
+            type: datetime
+            group: content
+        location:
+            type: text
+            required: true
+            group: content
+        image: 
+            type: image
+            group: content
+        teaser:
+            type: html
+            height: 100px
+            group: content
+        description:
+            type: html
+            height: 150px
+            group: content
+    sort: -startdate
+    default_status: published
+    record_template: event.twig
+    listing_template: event_listing.twig
+
 # Possible field types:
 #
 # text - varchar(256) - input type text.
